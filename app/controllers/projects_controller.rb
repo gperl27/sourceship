@@ -10,6 +10,21 @@ class ProjectsController < ApplicationController
     @projects = @company.projects
   end
 
+  def new
+    @company = Company.find(params[:company_id])
+    @project = @company.projects.new
+  end
+
+  def create
+    company = Company.find(params[:company_id])
+    project = company.projects.new(project_params)
+    if project.save
+      redirect_to company_projects_path
+    else
+      render 'new'
+    end
+  end
+
   def show
     @company = Company.find(params[:company_id])
     @project = @company.projects.find(params[:id])
@@ -21,6 +36,11 @@ class ProjectsController < ApplicationController
 
     project.destroy
 
-    redirect_to companies_path
+    redirect_to company_projects_path
+  end
+
+  private
+  def project_params
+    params.require(:project).permit(:name, :description, :due_date, :level)
   end
 end

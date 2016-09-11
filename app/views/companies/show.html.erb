@@ -6,6 +6,8 @@
 <h3>Description:</h3>
 <p><%= @company.description %></p>
 
+<%= link_to "New Project", new_company_project_path(@company) %>
+
 <%= link_to 'Edit your details', edit_company_path %>
 
-<%= link_to "See this company's listings", 
+<%= link_to "See this company's listings", company_projects_path(@company) %>
