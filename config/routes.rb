@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :companies do
     resources :projects
   end
+  
   get '/projects', to: "projects#all"
 end
