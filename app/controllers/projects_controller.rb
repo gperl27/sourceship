@@ -30,6 +30,22 @@ class ProjectsController < ApplicationController
     @project = @company.projects.find(params[:id])
   end
 
+  def edit
+    @company = Company.find(params[:company_id])
+    @project = @company.projects.find(params[:id])
+  end
+
+  def update
+    @company = Company.find(params[:company_id])
+    @project = @company.projects.find(params[:id])
+
+    if @project.update(project_params)
+      redirect_to company_project_path
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
     company = Company.find(params[:company_id])
     project = company.projects.find(params[:id])
