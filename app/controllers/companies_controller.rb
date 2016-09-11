@@ -26,12 +26,19 @@ class CompaniesController < ApplicationController
 
   def update
     @company = Company.find(params[:id])
-    
+
     if @company.update(company_params)
       redirect_to @company
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @company = Company.find(params[:id])
+    @company.destroy
+
+    redirect_to companies_path
   end
 
   private

@@ -3,6 +3,10 @@
 <ul>
   <% @companies.each do |company| %>
     <li><%= link_to "#{company.name}", company %></li>
+    <%= link_to("Delete", company,
+        method: :delete, 
+        data: { confirm: "Are you sure?" }) 
+        %>
   <% end %>
 </ul>
 
