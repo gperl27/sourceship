@@ -14,7 +14,7 @@ while i < 11
     )
   j = 0
   5.times { c.projects.create!(name: "Project #{j}", description: "About project #{j}",
-                       level: "level {j}", due_date: Time.now, 
+                       level: "level #{j}", due_date: Time.now, 
                        finished: false
                        )
     j+= 1
