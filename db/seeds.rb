@@ -8,9 +8,16 @@
 
 i = 0
 while i < 11
-  Company.create!(name: "Company #{i}", url: "www.#{i}.com",
+  c = Company.create!(name: "Company #{i}", url: "www.#{i}.com",
                   username: "#{i}company", password: "#{i}password",
                   description: "#{i} is a cool company."
     )
+  j = 0
+  5.times { c.projects.create!(name: "Project #{j}", description: "About project #{j}",
+                       level: "level {j}", due_date: Time.now, 
+                       finished: false
+                       )
+    j+= 1
+          }
   i+=1
 end
