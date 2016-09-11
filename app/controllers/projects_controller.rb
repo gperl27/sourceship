@@ -1,4 +1,9 @@
 class ProjectsController < ApplicationController
+
+  def all
+    @projects = Project.all
+  end
+
   def index
     @company = Company.find(params[:company_id])
     @projects = @company.projects
