@@ -11,3 +11,7 @@
 
 <h3>Level</h3>
 <p><%= @project.level %></p>
+
+<%= link_to("Delete this project", company_project_path,
+        method: :delete, 
+        data: { confirm: "Are you sure?" }) %>

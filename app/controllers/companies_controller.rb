@@ -38,8 +38,7 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     @company.destroy
 
-    redirect_to com
-    panies_path
+    redirect_to companies_path
   end
 
   private
