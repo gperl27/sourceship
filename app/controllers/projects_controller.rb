@@ -1,10 +1,6 @@
 class ProjectsController < ApplicationController
 
   #may want to put this method in a static controller (home/splash page)
-  def all
-    @projects = Project.all
-  end
-
   def index
     @company = Company.find(params[:company_id])
     @projects = @company.projects
